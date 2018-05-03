@@ -58,4 +58,5 @@ export class UserProvider {
       return resData;
     })
   }
+  
 }
