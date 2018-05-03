@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+// import { NativeStorage } from '@ionic-native/native-storage';
 import { UserProvider } from "../../providers/user/user";
 import { LoginPage } from '../login/login';
+import { ForgotpasswordPage } from '../forgotpassword/forgotpassword';
 import { RegisterPage } from '../register/register';
 
 /**
- * Generated class for the ForgotpasswordPage page.
+ * Generated class for the RefRegisterPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,34 +15,49 @@ import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
-  selector: 'page-forgotpassword',
-  templateUrl: 'forgotpassword.html',
+  selector: 'page-ref-register',
+  templateUrl: 'ref-register.html',
 })
-export class ForgotpasswordPage {
+export class RefRegisterPage {
 
   todo = {
     email: '',
+    password: '',
+    conpassword: '',
+    referal: 'PRO24814'
   };
   regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public user: UserProvider) {
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RefRegisterPage');
+  }
+
   gotoregister() {
     this.navCtrl.push(RegisterPage);
+  }
+  
+  gotoforgot() {
+    this.navCtrl.push(ForgotpasswordPage);
   }
 
   gotologin() {
     this.navCtrl.push(LoginPage);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotpasswordPage');
-  }
-
-  ForgotForm(form) {
+  registerForm(form) {
     // console.log(form.value.email.length);
-    if (form.value.email == '') {
+    if (form.value.referal == '') {
+      let toast = this.toastCtrl.create({
+        message: 'Please enter referal code',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
+    else if (form.value.email == '') {
       let toast = this.toastCtrl.create({
         message: 'Please enter email',
         duration: 3000,
@@ -56,19 +73,43 @@ export class ForgotpasswordPage {
       });
       toast.present();
     }
+    else if (form.value.password == '') {
+      let toast = this.toastCtrl.create({
+        message: 'Please enter password',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
+    else if (form.value.password.length < 6) {
+      let toast = this.toastCtrl.create({
+        message: 'Password must be six character',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
+    else if (form.value.password != form.value.conpassword) {
+      let toast = this.toastCtrl.create({
+        message: 'Password don\'t match',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }
     else {
       let loader = this.loadingCtrl.create({
         content: "Please wait...",
       });
       loader.present();
 
-      this.user.forgot_password(form.value.email).subscribe(resData => {
+      this.user.register(form.value).subscribe(resData => {
         console.log(resData);
         if (resData.status = true) {
           loader.dismiss();
           let toast = this.toastCtrl.create({
             message: resData.message,
-            duration: 6000,
+            duration: 3000,
             position: 'top'
           });
           toast.present();

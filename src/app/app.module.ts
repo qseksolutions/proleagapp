@@ -12,6 +12,7 @@ import { HomePage, FormatTimePipe } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { RefRegisterPage } from '../pages/ref-register/ref-register';
 import { ForgotpasswordPage } from '../pages/forgotpassword/forgotpassword';
 import { SettingPage } from "../pages/setting/setting";
 import { ProfilePage } from "../pages/profile/profile";
@@ -35,7 +36,11 @@ import { HomeProvider } from '../providers/home/home';
     SettingPage,
     ProfilePage,
     MyContestsPage,
+<<<<<<< HEAD
     FormatTimePipe
+=======
+    RefRegisterPage,
+>>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
   ],
   imports: [
     BrowserModule,
@@ -55,15 +60,20 @@ import { HomeProvider } from '../providers/home/home';
     SettingPage,
     ProfilePage,
     MyContestsPage,
+    RefRegisterPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+<<<<<<< HEAD
     NativeStorage,
     DatePipe,
     HomeProvider
+=======
+    NativeStorage
+>>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
   ]
 })
 export class AppModule {}
