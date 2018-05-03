@@ -96,7 +96,7 @@ export class RegisterPage {
 
       this.user.register(form.value).subscribe(resData => {
         console.log(resData);
-        if (resData.status = true) {
+        if (resData.status == true) {
           loader.dismiss();
           let toast = this.toastCtrl.create({
             message: resData.message,

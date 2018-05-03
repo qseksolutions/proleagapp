@@ -64,7 +64,7 @@ export class ForgotpasswordPage {
 
       this.user.forgot_password(form.value.email).subscribe(resData => {
         console.log(resData);
-        if (resData.status = true) {
+        if (resData.status == true) {
           loader.dismiss();
           let toast = this.toastCtrl.create({
             message: resData.message,

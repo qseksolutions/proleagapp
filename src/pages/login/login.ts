@@ -81,7 +81,7 @@ export class LoginPage {
       loader.present();
 
       this.user.login(form.value.email, form.value.password).subscribe(resData => {
-        if (resData.status = true) {
+        if (resData.status == true) {
           this.nativeStorage.setItem('user_id', resData.user.user_id);
           this.nativeStorage.setItem('user_fullname', resData.user.user_fullname);
           this.nativeStorage.setItem('user_email', resData.user.user_email);
@@ -103,49 +103,6 @@ export class LoginPage {
           toast.present();
         }
       });
-
-
-      /*var headers = new Headers();
-      headers.append('X-API-KEY', 'f23d996431b444ade4cac9e2da21bbea');
-      var testForm = new FormData();
-      // form.append('header',global.header);
-      testForm.append('X-API-KEY','f23d996431b444ade4cac9e2da21bbea');
-      /*testForm.append('username',form.value.email);
-      testForm.append('password',form.value.password);
-      testForm.append('username','praful.developer@gmail.com');
-      testForm.append('password','admin@1234');
-      this.http.post('https://payinbtc.com/api/v1/login',testForm, {headers:headers}).subscribe(data => {
-        console.log(data);
-        var res = data.json();
-        console.log(res);
-        if(res.error == false){
-          /*this.nativeStorage.setItem('token', res.token);
-          this.nativeStorage.setItem('id', res.user.id);
-          this.nativeStorage.setItem('email', res.user.email);
-          this.nativeStorage.setItem('company', res.user.company);
-          this.nativeStorage.setItem('firstname', res.user.firstname);
-          this.nativeStorage.setItem('lastname', res.user.lastname);
-          this.nativeStorage.setItem('num_of_login', res.user.num_of_login);
-          this.nativeStorage.setItem('status', res.user.status);
-          let toast = this.toastCtrl.create({
-            message: 'User was login successfully',
-            duration: 3000,
-            position: 'top'
-          });
-          toast.present();
-          loader.dismiss();
-          this.navCtrl.setRoot(HomePage);
-        }
-        else {
-          loader.dismiss();
-          let alert = this.alertCtrl.create({
-            title: 'Something wrong !',
-            subTitle: res.msg,
-            buttons: ['OK']
-          });
-          alert.present();
-        }
-      });*/
     }
   }
 

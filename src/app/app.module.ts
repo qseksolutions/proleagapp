@@ -36,11 +36,8 @@ import { HomeProvider } from '../providers/home/home';
     SettingPage,
     ProfilePage,
     MyContestsPage,
-<<<<<<< HEAD
-    FormatTimePipe
-=======
+    FormatTimePipe,
     RefRegisterPage,
->>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
   ],
   imports: [
     BrowserModule,
@@ -67,13 +64,10 @@ import { HomeProvider } from '../providers/home/home';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-<<<<<<< HEAD
     NativeStorage,
     DatePipe,
-    HomeProvider
-=======
-    NativeStorage
->>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
+    HomeProvider,
+    NativeStorage,
   ]
 })
 export class AppModule {}

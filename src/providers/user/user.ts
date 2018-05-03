@@ -1,6 +1,6 @@
 // import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { global } from '../../app/global';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -24,15 +24,29 @@ export class UserProvider {
     body.append("useremail", email);
     body.append("password", password);
 
-    return this.http.post(global.apiurl + global.login, body).map(data=>{
+    return this.http.post(global.userapiurl + global.login, body).map(data=>{
         var res = data.json();
         var resData = JSON.parse(JSON.stringify(res));
         return resData;
     })
-    
   }
 
-<<<<<<< HEAD
+  register(data) {
+
+    var body = new FormData();
+    body.append("useremail", data.email);
+    body.append("password", data.password);
+    if (data.referal != undefined && data.referal != null && data.referal != '') {
+      body.append("referal", data.referal);
+    }
+
+    return this.http.post(global.userapiurl + global.register, body).map(data => {
+      var res = data.json();
+      var resData = JSON.parse(JSON.stringify(res));
+      return resData;
+    })
+  }
+
   forgot_password(email) {
 
     var body = new FormData();
@@ -44,7 +58,4 @@ export class UserProvider {
       return resData;
     })
   }
-  
-=======
->>>>>>> 33b1bd3c33a6cc9cb502992132858e40cb975618
 }
