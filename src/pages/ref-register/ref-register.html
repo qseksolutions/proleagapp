@@ -6,14 +6,18 @@
   <div class="register-form m-t-30">
     <form #form="ngForm" (ngSubmit)="registerForm(form)">
       <!-- <input type="hidden" name="referal" [(ngModel)]="todo.referal" value="PRO24814"/> -->
+      <div class="box box-referal">
+        <input type="text" class="input-referal" placeholder="Enter your referal code" value="PRO24814" name="referal" [(ngModel)]="todo.referal" />
+      </div>
       <div class="box box-email">
-        <input type="text" class="input-email" placeholder="Enter your email" name="email" [(ngModel)]="todo.email"/>
+        <input type="text" class="input-email" placeholder="Enter your email" name="email" [(ngModel)]="todo.email" />
       </div>
       <div class="box box-pass">
-        <input type="password" class="input-pass" placeholder="Enter your password" name="password" [(ngModel)]="todo.password"/>
+        <input type="password" class="input-pass" placeholder="Enter your password" name="password" [(ngModel)]="todo.password" />
       </div>
       <div class="box box-conpass">
-        <input type="password" class="input-conpass" placeholder="Reenter your password" name="conpassword" [(ngModel)]="todo.conpassword"/>
+        <input type="password" class="input-conpass" placeholder="Reenter your password" name="conpassword" [(ngModel)]="todo.conpassword"
+        />
       </div>
       <button class="button m-t-15" type="submit">Register</button>
     </form>
@@ -30,8 +34,8 @@
   </div>
   <div class="register-footer">
     <span class="footer-left">
-      <p class="text-left text-white m-b-0 fs-9 para-contain op-0-5">Have a Referral Code?</p>
-      <p class="text-left text-white m-t-0 fs-14 op-0-8" (click)="gotorefregister()">Click here</p>
+      <p class="text-left text-white m-b-0 fs-9 para-contain op-0-5">Don't Have a Referral Code?</p>
+      <p class="text-left text-white m-t-0 fs-14 op-0-8" (click)="gotoregister()">Click here</p>
     </span>
     <span class="footer-right">
       <p class="text-right text-white m-b-0 fs-9 para-contain op-0-5">Already user?</p>
