@@ -12,19 +12,15 @@ import 'rxjs/add/operator/toPromise';
   and Angular DI.
 */
 @Injectable()
-export class UserProvider {
+export class HomeProvider {
 
   constructor(public http: Http) {
     console.log('Hello UserProvider Provider');
   }
 
-  login(email, password) {
+  match_list() {
     
-    var body = new FormData();
-    body.append("useremail", email);
-    body.append("password", password);
-
-    return this.http.post(global.apiurl + global.login, body).map(data=>{
+    return this.http.get(global.cricketurl + global.match_list).map(data=>{
         var res = data.json();
         var resData = JSON.parse(JSON.stringify(res));
         return resData;
@@ -32,19 +28,4 @@ export class UserProvider {
     
   }
 
-<<<<<<< HEAD
-  forgot_password(email) {
-
-    var body = new FormData();
-    body.append("user_email", email);
-
-    return this.http.post(global.userapiurl + global.forgot_password, body).map(data => {
-      var res = data.json();
-      var resData = JSON.parse(JSON.stringify(res));
-      return resData;
-    })
-  }
-  
-=======
->>>>>>> 33b1bd3c33a6cc9cb502992132858e40cb975618
 }

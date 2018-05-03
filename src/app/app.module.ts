@@ -4,10 +4,11 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { DatePipe } from '@angular/common'
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { HomePage, FormatTimePipe } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -20,6 +21,7 @@ import { MyContestsPage } from "../pages/my-contests/my-contests";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
+import { HomeProvider } from '../providers/home/home';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,11 @@ import { UserProvider } from '../providers/user/user';
     SettingPage,
     ProfilePage,
     MyContestsPage,
+<<<<<<< HEAD
+    FormatTimePipe
+=======
     RefRegisterPage,
+>>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,13 @@ import { UserProvider } from '../providers/user/user';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
+<<<<<<< HEAD
+    NativeStorage,
+    DatePipe,
+    HomeProvider
+=======
     NativeStorage
+>>>>>>> 0708a0166a84f78f50f8b3488e809726c7b4e52d
   ]
 })
 export class AppModule {}
