@@ -3,7 +3,7 @@
     <ion-title class="text-center m-t-10">
       <img src="../../assets/imgs/login-logo.png" width="50%">
     </ion-title>
-    <ion-segment [(ngModel)]="games" class="games-seg">
+    <ion-segment [(ngModel)]="games" class="games-seg" mode="md">
       <ion-segment-button value="cricket">
         Cricket
       </ion-segment-button>
@@ -43,108 +43,64 @@
         <div [ngSwitch]="matches">
           <div *ngSwitchCase="'fixtures'">
             <span class="m-t-10 dis-block">Select a Match</span>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/csk.png">
+            <div *ngFor="let p of resArr">
+              <ion-card class="match-card fixtures-card" *ngIf="p.match_status == 'fixtures'">
+                <ion-card-content>
+                  <div class="w-full flex-m">
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                    </div>
+                    <div class="w-50 text-center txt-league">
+                      {{p.team1}} vs {{p.team2}}
+                    </div>
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                    </div>
                   </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/mi.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/srh.png">
-                  </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/dd.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
+                </ion-card-content>
+                <div class="timer">{{p.countDown | async | formatTime}}</div>
+              </ion-card>
+            </div>
           </div>
           <div *ngSwitchCase="'live'">
-            <span>Select a Match</span>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/csk.png">
+            <span class="m-t-10 dis-block">Select a Match</span>
+            <div *ngFor="let p of resArr">
+              <ion-card class="match-card" *ngIf="p.match_status == 'live'">
+                <ion-card-content>
+                  <div class="w-full flex-m">
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                    </div>
+                    <div class="w-50 text-center txt-league">
+                      {{p.team1}} vs {{p.team2}}
+                    </div>
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                    </div>
                   </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/mi.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/csk.png">
-                  </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/mi.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
+                </ion-card-content>
+              </ion-card>
+            </div>
           </div>
           <div *ngSwitchCase="'results'">
-            <span>Select a Match</span>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/csk.png">
+            <span class="m-t-10 dis-block">Select a Match</span>
+            <div *ngFor="let p of resArr">
+              <ion-card class="match-card" *ngIf="p.match_status == 'results'">
+                <ion-card-content>
+                  <div class="w-full flex-m">
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                    </div>
+                    <div class="w-50 text-center txt-league">
+                      {{p.team1}} vs {{p.team2}}
+                    </div>
+                    <div class="w-25">
+                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                    </div>
                   </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/mi.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
-            <ion-card class="match-card">
-              <ion-card-content>
-                <div class="w-full flex-m">
-                  <div class="w-25">
-                    <img src="../../assets/imgs/csk.png">
-                  </div>
-                  <div class="w-50 text-center txt-league">
-                    Indian T20 League
-                  </div>
-                  <div class="w-25">
-                    <img src="../../assets/imgs/mi.png">
-                  </div>
-                </div>
-              </ion-card-content>
-
-            </ion-card>
+                </ion-card-content>
+              </ion-card>
+            </div>
           </div>
         </div>
     </div>

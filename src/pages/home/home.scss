@@ -21,9 +21,12 @@ page-home {
         color: #00275E;
     }
     .match-card {
-        margin: 16px 0 !important;
+        margin: 16px 0!important;
         width: 100%;
         box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.14);
+    }
+    .fixtures-card {
+        margin: 16px 0 30px 0!important;
     }
     .match-card .card-content {
         padding: 10px 5px !important;
@@ -36,5 +39,21 @@ page-home {
     }
     .w-50 {
         width: 50%;
+    }
+    .toolbar-ios ion-title {
+        display: flex;
+        align-items: center;
+        position: relative !important;
+    }
+    .timer {
+        position: absolute;
+        left: 0;
+        width: calc(100% - 60px);
+        margin-left: 30px;
+        text-align: center;
+        color: #FAFDFA;
+        background: #3FAD3A;
+        border-radius: 0 0 10px 10px;
+        font-size: 12px;
     }
 }

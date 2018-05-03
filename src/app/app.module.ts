@@ -2,12 +2,13 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { NativeStorage } from '@ionic-native/native-storage';
+import { DatePipe } from '@angular/common'
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { HomePage, FormatTimePipe } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
@@ -19,6 +20,7 @@ import { MyContestsPage } from "../pages/my-contests/my-contests";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
+import { HomeProvider } from '../providers/home/home';
 
 @NgModule({
   declarations: [
@@ -33,10 +35,11 @@ import { UserProvider } from '../providers/user/user';
     SettingPage,
     ProfilePage,
     MyContestsPage,
+    FormatTimePipe
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -58,8 +61,9 @@ import { UserProvider } from '../providers/user/user';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserProvider,
-    HttpClientModule,
-    NativeStorage
+    NativeStorage,
+    DatePipe,
+    HomeProvider
   ]
 })
 export class AppModule {}

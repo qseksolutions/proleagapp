@@ -4,7 +4,7 @@ import { NativeStorage } from '@ionic-native/native-storage';
 import { RegisterPage } from '../register/register';
 import { ForgotpasswordPage } from '../forgotpassword/forgotpassword';
 import { UserProvider } from "../../providers/user/user";
-
+import { Http } from "@angular/http";
 /**
  * Generated class for the LoginPage page.
  *
@@ -25,7 +25,7 @@ export class LoginPage {
   };
   regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public user: UserProvider, private nativeStorage: NativeStorage) {
+  constructor(public http:Http,public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public user: UserProvider, private nativeStorage: NativeStorage) {
   }
 
   ionViewDidLoad() {
@@ -81,17 +81,22 @@ export class LoginPage {
       loader.present();
 
       this.user.login(form.value.email, form.value.password).subscribe(resData => {
-        console.log(resData);
-        
         if (resData.status = true) {
           this.nativeStorage.setItem('user_id', resData.user.user_id);
           this.nativeStorage.setItem('user_fullname', resData.user.user_fullname);
           this.nativeStorage.setItem('user_email', resData.user.user_email);
           this.nativeStorage.setItem('userdata', resData.user);
+          loader.dismiss();
+          let toast = this.toastCtrl.create({
+            message: resData.message,
+            duration: 3000,
+            position: 'top'
+          });
+          toast.present();
         } else {
           loader.dismiss();
           let toast = this.toastCtrl.create({
-            message: res.message,
+            message: resData.message,
             duration: 3000,
             position: 'top'
           });
