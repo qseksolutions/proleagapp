@@ -82,6 +82,7 @@ export class LoginPage {
 
       this.user.login(form.value.email, form.value.password).subscribe(resData => {
         console.log(resData);
+        
         if (resData.status = true) {
           this.nativeStorage.setItem('user_id', resData.user.user_id);
           this.nativeStorage.setItem('user_fullname', resData.user.user_fullname);

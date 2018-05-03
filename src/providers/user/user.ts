@@ -25,6 +25,7 @@ export class UserProvider {
     body.append("password", password);
 
     return this.http.post(global.apiurl + global.login, body).map((response: Response) => response);
+    
   }
 
 }
