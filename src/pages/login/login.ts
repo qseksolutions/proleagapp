@@ -5,7 +5,7 @@ import { RegisterPage } from '../register/register';
 import { ForgotpasswordPage } from '../forgotpassword/forgotpassword';
 import { UserProvider } from "../../providers/user/user";
 import { Http } from "@angular/http";
-import { HomePage } from '../home/home';
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the LoginPage page.
  *
@@ -94,7 +94,7 @@ export class LoginPage {
             position: 'top'
           });
           toast.present();
-          this.navCtrl.push(HomePage);
+          this.navCtrl.push(TabsPage);
         } else {
           loader.dismiss();
           let toast = this.toastCtrl.create({
