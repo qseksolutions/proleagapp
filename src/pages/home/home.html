@@ -1,0 +1,160 @@
+ <ion-header>
+  <ion-toolbar>
+    <ion-title class="text-center m-t-10">
+      <img src="../../assets/imgs/login-logo.png" width="50%">
+    </ion-title>
+    <ion-segment [(ngModel)]="games" class="games-seg">
+      <ion-segment-button value="cricket">
+        Cricket
+      </ion-segment-button>
+      <ion-segment-button value="football">
+        Football
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div [ngSwitch]="games">
+    <div *ngSwitchCase="'cricket'">
+      <ion-slides pager autoplay="5000" loop="true" speed="3000">
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+      </ion-slides>
+      <span class="match-txt">Match Center</span>
+        <ion-segment mode="ios" [(ngModel)]="matches" class="matches-seg">
+          <ion-segment-button value="fixtures">
+            Fixtures
+          </ion-segment-button>
+          <ion-segment-button value="live">
+            Live
+          </ion-segment-button>
+          <ion-segment-button value="results">
+            Results
+          </ion-segment-button>
+        </ion-segment>
+        <div [ngSwitch]="matches">
+          <div *ngSwitchCase="'fixtures'">
+            <span class="m-t-10 dis-block">Select a Match</span>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/csk.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/mi.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/srh.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/dd.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+          </div>
+          <div *ngSwitchCase="'live'">
+            <span>Select a Match</span>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/csk.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/mi.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/csk.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/mi.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+          </div>
+          <div *ngSwitchCase="'results'">
+            <span>Select a Match</span>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/csk.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/mi.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+            <ion-card class="match-card">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="../../assets/imgs/csk.png">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    Indian T20 League
+                  </div>
+                  <div class="w-25">
+                    <img src="../../assets/imgs/mi.png">
+                  </div>
+                </div>
+              </ion-card-content>
+
+            </ion-card>
+          </div>
+        </div>
+    </div>
+    <div *ngSwitchCase="'football'">
+
+      <h2>Welcome to Ionic!</h2>
+  <p>
+    This starter project comes with simple tabs-based layout for apps
+    that are going to primarily use a Tabbed UI.
+  </p>
+    </div>
+  </div>
+</ion-content>

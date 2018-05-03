@@ -1,0 +1,40 @@
+page-home {
+    .games-seg .segment-button {
+        color: #FAFDFA !important;
+    }
+    .games-seg .segment-button.activated, .games-seg .segment-button.segment-activated, .games-seg .button.segment-activated {
+        color: #FAFDFA !important;
+        border-color: #00275E !important; 
+    }
+    .swiper-pagination-bullet-active {
+        background: #3FAD3A !important;
+    }
+    .matches-seg .segment-button {
+        color: #00275E !important;
+        border-color: #00275E !important; 
+    }
+    .matches-seg .segment-button.activated, .matches-seg .segment-button.segment-activated, .matches-seg .button.segment-activated {
+        color: #FAFDFA !important;
+        background-color: #00275E !important; 
+    }
+    .match-txt {
+        color: #00275E;
+    }
+    .match-card {
+        margin: 16px 0 !important;
+        width: 100%;
+        box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.14);
+    }
+    .match-card .card-content {
+        padding: 10px 5px !important;
+    }
+    .txt-league {
+        color: #00275E;
+    }
+    .w-25 {
+        width: 25%;
+    }
+    .w-50 {
+        width: 50%;
+    }
+}

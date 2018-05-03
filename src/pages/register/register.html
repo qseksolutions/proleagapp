@@ -1,0 +1,43 @@
+<ion-content padding>
+  <div class="register-logo">
+    <img class="register-logo-image" src="../../assets/imgs/login-logo.png" />
+  </div>
+  <p class="text-center text-white m-t-0 fs-12 para-contain">Lorem ipsum dolor sit amet consec</p>
+  <div class="register-form m-t-30">
+    <form #form="ngForm" (ngSubmit)="registerForm(form)">
+      <div class="box box-name">
+        <input type="text" class="input-name" placeholder="Enter your name" name="name" [(ngModel)]="todo.name"/>
+      </div>
+      <div class="box box-email">
+        <input type="text" class="input-email" placeholder="Enter your email" name="email" [(ngModel)]="todo.email"/>
+      </div>
+      <div class="box box-pass">
+        <input type="password" class="input-pass" placeholder="Enter your password" name="password" [(ngModel)]="todo.password"/>
+      </div>
+      <div class="box box-conpass">
+        <input type="password" class="input-conpass" placeholder="Reenter your password" name="conpassword" [(ngModel)]="todo.conpassword"/>
+      </div>
+      <button class="button m-t-15" type="submit">Register</button>
+    </form>
+  </div>
+  <p class="text-center text-white m-t-20 fs-10 para-contain op-0-8" (click)="gotoforgot()">Forgot Password?</p>
+  <p class="text-center text-white m-t-20 m-b-20 fs-10 para-contain op-0-8">or</p>
+  <div class="social-register">
+    <span class="icon icon-facebook">
+      <i class="fa fa-facebook text-white"></i>
+    </span>
+    <span class="icon icon-google">
+      <i class="fa fa-google-plus text-white"></i>
+    </span>
+  </div>
+  <div class="register-footer">
+    <span class="footer-left">
+      <p class="text-left text-white m-b-0 fs-9 para-contain op-0-5">Have a Referral Code?</p>
+      <p class="text-left text-white m-t-0 fs-14 op-0-8">Click here</p>
+    </span>
+    <span class="footer-right">
+      <p class="text-right text-white m-b-0 fs-9 para-contain op-0-5">Already user?</p>
+      <p class="text-right text-white m-t-0 fs-14 op-0-8" (click)="gotologin()">Back to login</p>
+    </span>
+  </div>
+</ion-content>

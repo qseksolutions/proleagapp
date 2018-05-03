@@ -1,0 +1,33 @@
+<ion-content padding>
+  <div class="login-logo">
+    <img class="login-logo-image" src="../../assets/imgs/login-logo.png" />
+  </div>
+  <p class="text-center text-white m-t-0 fs-12 para-contain">Lorem ipsum dolor sit amet consec</p>
+  <div class="login-form m-t-30">
+    <form #form="ngForm" (ngSubmit)="logForm(form)">
+      <div class="box box-email">
+        <input type="text" class="input-email" placeholder="Enter your email" name="email" [(ngModel)]="todo.email"/>
+      </div>
+      <div class="box box-pass">
+        <input type="password" class="input-pass" placeholder="Enter your password" name="password" [(ngModel)]="todo.password"/>
+      </div>
+      <button class="button m-t-15" type="submit">Log In</button>
+    </form>
+  </div>
+  <p class="text-center text-white m-t-20 fs-10 para-contain op-0-8" (click)="gotoforgot()">Forgot Password?</p>
+  <p class="text-center text-white m-t-20 m-b-20 fs-10 para-contain op-0-8">or</p>
+  <div class="social-login">
+    <span class="icon icon-facebook"><i class="fa fa-facebook text-white"></i></span>
+    <span class="icon icon-google"><i class="fa fa-google-plus text-white"></i></span>
+  </div>
+  <div class="login-footer">
+    <span class="footer-left">
+      <p class="text-left text-white m-b-0 fs-9 para-contain op-0-5">Have a Referral Code?</p>
+      <p class="text-left text-white m-t-0 fs-14 op-0-8">Click here</p>
+    </span>
+    <span class="footer-right">
+      <p class="text-right text-white m-b-0 fs-9 para-contain op-0-5">New user?</p>
+      <p class="text-right text-white m-t-0 fs-14 op-0-8" (click)="gotoregister()">Register</p>
+    </span>
+  </div>
+</ion-content>
