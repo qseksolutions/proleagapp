@@ -29,88 +29,168 @@
         </ion-slide>
       </ion-slides>
       <span class="match-txt">Match Center</span>
-        <ion-segment mode="ios" [(ngModel)]="matches" class="matches-seg">
-          <ion-segment-button value="fixtures">
-            Fixtures
-          </ion-segment-button>
-          <ion-segment-button value="live">
-            Live
-          </ion-segment-button>
-          <ion-segment-button value="results">
-            Results
-          </ion-segment-button>
-        </ion-segment>
-        <div [ngSwitch]="matches">
-          <div *ngSwitchCase="'fixtures'">
-            <span class="m-t-10 dis-block">Select a Match</span>
-            <div *ngFor="let p of resArr">
-              <ion-card class="match-card fixtures-card" *ngIf="p.match_status == 'fixtures'">
-                <ion-card-content>
-                  <div class="w-full flex-m">
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
-                    </div>
-                    <div class="w-50 text-center txt-league">
-                      {{p.team1}} vs {{p.team2}}
-                    </div>
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
-                    </div>
+      <ion-segment mode="ios" [(ngModel)]="matches" class="matches-seg">
+        <ion-segment-button value="fixtures">
+          Fixtures
+        </ion-segment-button>
+        <ion-segment-button value="live">
+          Live
+        </ion-segment-button>
+        <ion-segment-button value="results">
+          Results
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="matches">
+        <div *ngSwitchCase="'fixtures'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card fixtures-card" *ngIf="p.match_status == 'fixtures'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
                   </div>
-                </ion-card-content>
-                <div class="timer">{{p.countDown | async | formatTime}}</div>
-              </ion-card>
-            </div>
-          </div>
-          <div *ngSwitchCase="'live'">
-            <span class="m-t-10 dis-block">Select a Match</span>
-            <div *ngFor="let p of resArr">
-              <ion-card class="match-card" *ngIf="p.match_status == 'live'">
-                <ion-card-content>
-                  <div class="w-full flex-m">
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
-                    </div>
-                    <div class="w-50 text-center txt-league">
-                      {{p.team1}} vs {{p.team2}}
-                    </div>
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
-                    </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
                   </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
-          </div>
-          <div *ngSwitchCase="'results'">
-            <span class="m-t-10 dis-block">Select a Match</span>
-            <div *ngFor="let p of resArr">
-              <ion-card class="match-card" *ngIf="p.match_status == 'results'">
-                <ion-card-content>
-                  <div class="w-full flex-m">
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team1_logo}}">
-                    </div>
-                    <div class="w-50 text-center txt-league">
-                      {{p.team1}} vs {{p.team2}}
-                    </div>
-                    <div class="w-25">
-                      <img src="{{teamImgUrl}}{{p.team2_logo}}">
-                    </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
                   </div>
-                </ion-card-content>
-              </ion-card>
-            </div>
+                </div>
+              </ion-card-content>
+              <div class="timer">{{p.countDown | async | formatTime}}</div>
+            </ion-card>
           </div>
         </div>
+        <div *ngSwitchCase="'live'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card" *ngIf="p.match_status == 'live'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
+                  </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+        <div *ngSwitchCase="'results'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card" *ngIf="p.match_status == 'results'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
+                  </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+      </div>
     </div>
     <div *ngSwitchCase="'football'">
-
-      <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
+      <ion-slides pager autoplay="5000" loop="true" speed="3000">
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slider-bg.png">
+        </ion-slide>
+      </ion-slides>
+      <span class="match-txt">Match Center</span>
+      <ion-segment mode="ios" [(ngModel)]="matches" class="matches-seg">
+        <ion-segment-button value="fixtures">
+          Fixtures
+        </ion-segment-button>
+        <ion-segment-button value="live">
+          Live
+        </ion-segment-button>
+        <ion-segment-button value="results">
+          Results
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="matches">
+        <div *ngSwitchCase="'fixtures'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card fixtures-card" *ngIf="p.match_status == 'fixtures'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
+                  </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                  </div>
+                </div>
+              </ion-card-content>
+              <div class="timer">{{p.countDown | async | formatTime}}</div>
+            </ion-card>
+          </div>
+        </div>
+        <div *ngSwitchCase="'live'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card" *ngIf="p.match_status == 'live'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
+                  </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+        <div *ngSwitchCase="'results'">
+          <span class="m-t-10 dis-block">Select a Match</span>
+          <div *ngFor="let p of resArr">
+            <ion-card class="match-card" *ngIf="p.match_status == 'results'">
+              <ion-card-content>
+                <div class="w-full flex-m">
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team1_logo}}">
+                  </div>
+                  <div class="w-50 text-center txt-league">
+                    {{p.team1}} vs {{p.team2}}
+                  </div>
+                  <div class="w-25">
+                    <img src="{{teamImgUrl}}{{p.team2_logo}}">
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

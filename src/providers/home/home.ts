@@ -1,6 +1,6 @@
 // import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http } from '@angular/http';
 import { global } from '../../app/global';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';

@@ -6,7 +6,8 @@ import { ForgotpasswordPage } from '../forgotpassword/forgotpassword';
 import { UserProvider } from "../../providers/user/user";
 import { Http } from "@angular/http";
 import { TabsPage } from '../tabs/tabs';
-/**
+import { RefRegisterPage } from '../ref-register/ref-register';
+/*
  * Generated class for the LoginPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -33,6 +34,10 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  gotorefregister() {
+    this.navCtrl.push(RefRegisterPage);
+  }
+  
   gotoforgot() {
     this.navCtrl.push(ForgotpasswordPage);
   }

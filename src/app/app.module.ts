@@ -22,6 +22,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserProvider } from '../providers/user/user';
 import { HomeProvider } from '../providers/home/home';
+import { ForgotpasswordPageModule } from '../pages/forgotpassword/forgotpassword.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { HomeProvider } from '../providers/home/home';
   imports: [
     BrowserModule,
     HttpModule,
+    ForgotpasswordPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
